@@ -158,7 +158,7 @@ function renderOverview() {
     ["do 30. 6.", "Bezpečie v triede", "Video 1, teaser a prvé reels", "current"],
     ["júl", "Regenerácia", "Jeden ľahší letný obsah", ""],
     ["koniec aug.", "Prevencia", "Bezpečie pred začiatkom roka", ""],
-    ["priebežne", "Meranie", "Views, reach a učenia", ""]
+    ["priebežne", "Meranie", "Prehratia, dosah a zistenia", ""]
   ].map(([date,title,text,current]) => `<div class="phase">
     <span class="phase-date">${date}</span>
     <div><strong>${title}</strong><p>${text}</p></div>
@@ -207,7 +207,7 @@ function renderContent() {
         <span class="tag">${video.label} · ${video.duration}</span>
         <h3>${video.title}</h3>
         <p>${video.role}</p>
-        <p><strong>Textová os:</strong><br>${video.post}</p>
+        <p><strong>Hlavná myšlienka:</strong><br>${video.post}</p>
         <a class="button" href="${video.url}" target="_blank" rel="noreferrer">Otvoriť na YouTube</a>
       </aside>
       <div class="clip-list">
