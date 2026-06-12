@@ -1,5 +1,5 @@
 const STORAGE_KEY = "trp-dashboard-v1";
-const CONTENT_VERSION = 2;
+const CONTENT_VERSION = 3;
 const LEGACY_CLIP_STATUSES = {
   t1: "idea",
   v1c1: "idea", v1c2: "selected", v1c3: "selected", v1c4: "idea",
@@ -22,7 +22,7 @@ const initialState = {
   tasks: [
     { id: 1, title: "Potvrdiť publikačný dátum prvého videa", detail: "Zladiť termín so Zuzkou a publikovaním teaseru.", due: "2026-06-19", phase: "Jún", status: "next" },
     { id: 2, title: "Pripraviť post k téme Bezpečie v triede", detail: "Použiť hlavné CTA: Pozrite si celé video na YouTube.", due: "2026-06-17", phase: "Jún", status: "next" },
-    { id: 3, title: "Vyrobiť prvý reel z úseku 7:15–7:43", detail: "Video 1: učenie je bez bezpečia takmer nemožné.", due: "2026-06-18", phase: "Jún", status: "next" },
+    { id: 3, title: "Vyrobiť prvý reel: Bez bezpečia sa neučíme", detail: "Video 1, spojiť úseky 7:15–7:43 a 8:00–8:20.", due: "2026-06-18", phase: "Jún", status: "next" },
     { id: 4, title: "Poslať Zuzke draft postu a stories", detail: "Jeden dokument, jedno CTA, odkazy na teaser a Video 1.", due: "2026-06-18", phase: "Jún", status: "next" },
     { id: 5, title: "Zapísať prvé výsledky kampane", detail: "YouTube views, unikátny reach a social video views samostatne.", due: "2026-06-22", phase: "Priebežne", status: "progress" },
     { id: 6, title: "Pripraviť letný post o regenerácii", detail: "Použiť Video 3 a jemné CTA na kurz.", due: "2026-07-15", phase: "Leto", status: "backlog" },
@@ -35,8 +35,8 @@ const initialState = {
       role: "Štart kampane a pozvanie k celej sérii.",
       post: "Ticho v triede ešte nemusí znamenať bezpečie. Náročné správanie môže byť signálom, že nervový systém dieťaťa hľadá spôsob, ako situáciu zvládnuť.",
       clips: [
-        { id: "t1", time: "0:00–0:30", title: "Za správaním je príbeh", hook: "Čo ak náročné správanie nie je problém, ale správa?", point: "Správanie môže komunikovať vnútornú nepohodu a dospelý má pri regulácii kľúčovú rolu.", status: "selected" },
-        { id: "t2", time: "0:14–0:46", title: "Čo prinesie séria", hook: "Bezpečná škola nezačína pri pravidlách, ale pri porozumení nervovému systému.", point: "Séria prepája bezpečie, porozumenie správaniu a regeneráciu detí aj dospelých.", status: "idea" }
+        { id: "t1", time: "0:00–0:14 + 0:20–0:31 + 0:39–0:46", duration: "cca 0:32", title: "Za správaním je príbeh", hook: "Čo ak náročné správanie nie je problém, ale správa?", point: "Rozmanitá trieda a náročné správanie sa prepoja s vnútornou nepohodou, kľúčovou rolou dospelého a cieľom vytvárať bezpečné školy.", status: "selected" },
+        { id: "t2", time: "0:14–0:31 + 0:39–0:46", duration: "cca 0:24", title: "Čo prinesie séria", hook: "Bezpečná škola nezačína pri pravidlách, ale pri porozumení nervovému systému.", point: "Krátke predstavenie troch tém série: bezpečie, správanie ako komunikácia a regenerácia detí aj dospelých.", status: "idea" }
       ]
     },
     {
@@ -45,11 +45,11 @@ const initialState = {
       role: "Hlavné júnové video. Vysvetľuje bezpečie, učenie, kontext, voľbu a spojenie.",
       post: "Bezpečie v triede nie je bonus. Je to podmienka učenia. Učiteľ ho spoluvytvára cez kontext, primeranú voľbu a spojenie.",
       clips: [
-        { id: "v1c1", time: "2:39–3:13", title: "Čo je bezpečie", hook: "Bezpečie nie je len absencia nebezpečenstva.", point: "Je to pocit prijatia a orientácie vo svete, bez ktorého sa dieťa nedokáže naplno učiť.", status: "selected" },
-        { id: "v1c2", time: "7:15–7:43", title: "Bez bezpečia sa neučíme", hook: "Keď mozog hľadá hrozby, nové učivo ide bokom.", point: "Učiteľ vytvára bezpečie každodenne cez kontext, voľbu a spojenie.", status: "selected" },
-        { id: "v1c3", time: "7:44–8:20", title: "Čo potrebuje dieťa po konflikte", hook: "Dieťa po konflikte môže sedieť v triede, ale jeho energia je stále zameraná na prežitie.", point: "Kontext, voľba a spojenie pomáhajú presunúť energiu z obrany späť k učeniu.", status: "idea" },
-        { id: "v1c4", time: "8:20–8:45", title: "Učiteľ ako dôležitý dospelý", hook: "Bezpečie nie je luxus. Je to základ všetkého učenia.", point: "Bezpečná skúsenosť s učiteľom môže vyvažovať aj záťaž, ktorú dieťa zažíva mimo školy.", status: "selected" },
-        { id: "v1c5", time: "3:00–3:36", title: "Tri piliere bezpečia", hook: "Tri praktické nástroje, ktoré vnášajú poriadok tam, kde vzniká stres.", point: "Kontext, voľba a spojenie ukotvujú nervovú sústavu detí aj dospelých.", status: "idea" }
+        { id: "v1c1", time: "2:39–3:13 + 7:30–7:43", duration: "cca 0:47", title: "Čo je bezpečie", hook: "Bezpečie nie je len absencia nebezpečenstva.", point: "Definícia bezpečia sa uzavrie jeho priamym dôsledkom: mozog v ohrození hľadá hrozby namiesto spracovania nových informácií.", status: "selected" },
+        { id: "v1c2", time: "7:15–7:43 + 8:00–8:20", duration: "cca 0:48", title: "Bez bezpečia sa neučíme", hook: "Keď mozog hľadá hrozby, nové učivo ide bokom.", point: "Učiteľ vytvára bezpečie každodenne a cez kontext, voľbu a spojenie pomáha presunúť energiu dieťaťa z prežitia späť k učeniu.", status: "selected" },
+        { id: "v1c3", time: "7:44–8:20", duration: "cca 0:36", title: "Čo potrebuje dieťa po konflikte", hook: "Dieťa po konflikte môže sedieť v triede, ale jeho energia je stále zameraná na prežitie.", point: "Kontext, voľba a spojenie pomáhajú presunúť energiu z obrany späť k učeniu.", status: "idea" },
+        { id: "v1c4", time: "7:15–7:30 + 8:20–8:45", duration: "cca 0:40", title: "Učiteľ ako dôležitý dospelý", hook: "Bezpečie nie je luxus. Je to základ všetkého učenia.", point: "Učiteľ bezpečie vytvára každým konaním a môže dieťaťu poskytnúť skúsenosť, ktorá vyvažuje záťaž mimo školy.", status: "selected" },
+        { id: "v1c5", time: "3:00–3:31 + 3:37–3:50 + 4:41–4:59 + 5:42–5:55", duration: "cca 1:15", title: "Tri piliere bezpečia", hook: "Tri praktické nástroje, ktoré vnášajú poriadok tam, kde vzniká stres.", point: "Dynamický prehľad kontextu, primeranej voľby a spojenia bez dlhých odbočiek a príkladov.", status: "idea" }
       ]
     },
     {
@@ -58,13 +58,13 @@ const initialState = {
       role: "Druhá fáza kampane. Predstavuje TRP ako optiku a učiteľa ako termostat.",
       post: "Čo ak náročné správanie nie je útok na učiteľa? Môže byť neúspešným pokusom dieťaťa zvládnuť napätie, ktoré ešte nevie inak spracovať.",
       clips: [
-        { id: "v2c1", time: "0:25–1:10", title: "Vymeňme nálepku za otázku", hook: "Drzáň. Nervák. Ignorant. Manipulátor. Čo nám tieto nálepky nepovedia?", point: "TRP mení hodnotenie za pozorovanie a otázku „Čo sa ti stalo?“.", status: "selected" },
-        { id: "v2c2", time: "1:21–2:04", title: "Správanie je signál", hook: "Útok, vyrušovanie aj zamrznutie môžu mať rovnaký koreň.", point: "Nervový systém môže na stratu bezpečia reagovať hlučne aj úplným stiahnutím.", status: "idea" },
-        { id: "v2c3", time: "2:19–2:57", title: "Nie je to útok na mňa", hook: "Náročné správanie dieťaťa nie je útokom na vás ako na osobu.", point: "Môže byť neúspešným pokusom dieťaťa regulovať napätie, ktoré nevie inak spracovať.", status: "selected" },
-        { id: "v2c4", time: "3:14–4:21", title: "Tri úrovne regulácie", hook: "Keď je dieťa v napätí, samotné vysvetľovanie nemusí fungovať.", point: "Regulácia prebieha cez telo, bezpečný vzťah a až potom cez rozum.", status: "idea" },
-        { id: "v2c5", time: "4:58–5:47", title: "Teplomer alebo termostat", hook: "Ste v napätej triede teplomer alebo termostat?", point: "Termostat napätie vníma, ale nepridáva k nemu vlastný výbuch. Aktívne prináša pokoj.", status: "selected" },
-        { id: "v2c6", time: "5:47–6:21", title: "Dieťa sa reguluje cez nás", hook: "Dieťa sa nenaučí regulovať iba pokynom „upokoj sa“.", point: "Nezrelá nervová sústava potrebuje najprv opakovane zažívať pokoj a sebaistotu dospelého.", status: "selected" },
-        { id: "v2c7", time: "8:24–8:56", title: "Najprv telo, potom rozhovor", hook: "Rozhovor v stave ohrozenia často prichádza priskoro.", point: "Keď je rozumový mozog dočasne odpojený, prvým krokom je upokojiť telo cez dych, zmysly alebo pohyb.", status: "idea" }
+        { id: "v2c1", time: "0:25–1:10", duration: "cca 0:45", title: "Vymeňme nálepku za otázku", hook: "Drzáň. Nervák. Ignorant. Manipulátor. Čo nám tieto nálepky nepovedia?", point: "TRP mení hodnotenie za pozorovanie a otázku „Čo sa ti stalo?“.", status: "selected" },
+        { id: "v2c2", time: "1:21–1:36 + 1:59–2:04 + 2:35–2:57", duration: "cca 0:42", title: "Správanie je signál", hook: "Útok, vyrušovanie aj zamrznutie môžu mať rovnaký koreň.", point: "Príklady správania sa spoja s hlavnou pointou: nejde o útok, ale o neúspešný pokus regulovať napätie a signál straty bezpečia.", status: "idea" },
+        { id: "v2c3", time: "2:07–2:43 + 2:50–2:57", duration: "cca 0:43", title: "Nie je to útok na mňa", hook: "Prečo si jeho správanie beriem tak osobne?", point: "Reel uzná reakciu učiteľa, vysvetlí ju fungovaním nervového systému a potom oddelí správanie dieťaťa od útoku na osobu.", status: "selected" },
+        { id: "v2c4", time: "3:14–4:21", duration: "cca 1:07", title: "Tri úrovne regulácie", hook: "Keď je dieťa v napätí, samotné vysvetľovanie nemusí fungovať.", point: "Regulácia prebieha cez telo, bezpečný vzťah a až potom cez rozum.", status: "idea" },
+        { id: "v2c5", time: "4:58–5:47", duration: "cca 0:49", title: "Teplomer alebo termostat", hook: "Ste v napätej triede teplomer alebo termostat?", point: "Termostat napätie vníma, ale nepridáva k nemu vlastný výbuch. Aktívne prináša pokoj.", status: "selected" },
+        { id: "v2c6", time: "4:46–4:58 + 5:39–6:21", duration: "cca 0:54", title: "Dieťa sa reguluje cez nás", hook: "Prečo sú pokojní dospelí takí kľúčoví pre bezpečie detí?", point: "Otázka sa prepojí s koreguláciou: pokoj dospelého pomáha nezrelej nervovej sústave dieťaťa dostať sa späť do bezpečia.", status: "selected" },
+        { id: "v2c7", time: "8:24–8:56", duration: "cca 0:32", title: "Najprv telo, potom rozhovor", hook: "Rozhovor v stave ohrozenia často prichádza priskoro.", point: "Keď je rozumový mozog dočasne odpojený, prvým krokom je upokojiť telo cez dych, zmysly alebo pohyb.", status: "idea" }
       ]
     },
     {
@@ -73,14 +73,14 @@ const initialState = {
       role: "Letný obsah, regenerácia učiteľov a jemné CTA na kurz.",
       post: "Odolnosť nevzniká tým, že vydržíme stále viac, ale tým, že sa po záťaži dokážeme vrátiť k pokoju, bezpečiu a svojim zdrojom.",
       clips: [
-        { id: "v3c1", time: "0:51–1:49", title: "Bezpečie nie je život bez stresu", hook: "Ak by bezpečie znamenalo úplnú neprítomnosť stresu, nikdy by sme ho nedosiahli.", point: "Stres je bežnou súčasťou života a sám osebe nemusí znamenať stratu bezpečia.", status: "idea" },
-        { id: "v3c2", time: "2:02–2:42", title: "Kedy stres buduje odolnosť", hook: "Nie každý stres zraňuje. Rozhodujú podmienky, v ktorých ho zažívame.", point: "Posilňujúci stres je mierny, krátkodobý, predvídateľný, ovplyvniteľný a sprevádzaný podporou.", status: "idea" },
-        { id: "v3c3", time: "2:55–3:25", title: "Neodstraňujme stres, urobme ho zvládnuteľným", hook: "Cieľom školy nie je odstrániť všetok stres.", point: "Predvídateľnosť, čas na prípravu a podpora môžu z náročnej situácie urobiť posilňujúcu skúsenosť.", status: "selected" },
-        { id: "v3c4", time: "3:58–4:32", title: "Odolnosť vzniká pri zotavení", hook: "To, čo nás posilňuje, nie je absencia stresu, ale schopnosť zotaviť sa z neho.", point: "Bez priebežnej regenerácie sa nervový systém vyčerpáva a stráca schopnosť učiť sa.", status: "selected" },
-        { id: "v3c5", time: "4:48–5:23", title: "Ako sa najlepšie učíme", hook: "Učíme sa lepšie v úplnom pokoji alebo pod tlakom?", point: "Najlepšie sa učíme pri miernom nabudení, keď zostáva zachovaný pocit bezpečia.", status: "idea" },
-        { id: "v3c6", time: "6:35–7:20", title: "Aj učiteľ potrebuje regeneráciu", hook: "Aby sme mohli byť oporou pre deti, musíme sa postarať o vlastný nervový systém.", point: "Spánok, pohyb, jedlo, dych a skutočné prestávky sú základné pracovné zdroje, nie odmena.", status: "selected" },
-        { id: "v3c7", time: "7:20–8:03", title: "Bezpečná zborovňa, bezpečnejšia trieda", hook: "Bezpečie v zborovni priamo ovplyvňuje bezpečie v triede.", point: "Vzťahová podpora, hranice, mentoring a reflexia pomáhajú učiteľovi zachovať odborný odstup.", status: "idea" },
-        { id: "v3c8", time: "10:37–10:50", title: "Tvorba bezpečia začína u nás", hook: "Tvorba bezpečia začína u nás samých.", point: "Dospelý, ktorý má prístup k svojim zdrojom, dokáže vytvárať prostredie pre rozvoj detí.", status: "selected" }
+        { id: "v3c1", time: "0:51–1:07 + 1:41–2:02", duration: "cca 0:37", title: "Bezpečie nie je život bez stresu", hook: "Ak by bezpečie znamenalo úplnú neprítomnosť stresu, nikdy by sme ho nedosiahli.", point: "Hook sa bez odbočiek prepojí s pointou, že stres nie je automaticky zlý a za správnych okolností môže budovať odolnosť.", status: "idea" },
+        { id: "v3c2", time: "2:02–2:42 + 3:10–3:25", duration: "cca 0:55", title: "Kedy stres buduje odolnosť", hook: "Nie každý stres zraňuje. Rozhodujú podmienky, v ktorých ho zažívame.", point: "Podmienky posilňujúceho stresu sa uzavrú kontrastom s dlhodobým, intenzívnym stresom bez podpory.", status: "idea" },
+        { id: "v3c3", time: "2:55–3:10 + 3:25–3:51", duration: "cca 0:41", title: "Neodstraňujme stres, urobme ho zvládnuteľným", hook: "Cieľom školy nie je odstrániť všetok stres.", point: "Príklad ohlásenej písomky sa spojí s praktickými otázkami: potrebuje dieťa informácie, oddych alebo podporu pokojného človeka?", status: "selected" },
+        { id: "v3c4", time: "3:58–4:32 + 8:55–9:19", duration: "cca 0:58", title: "Odolnosť vzniká pri zotavení", hook: "To, čo nás posilňuje, nie je absencia stresu, ale schopnosť zotaviť sa z neho.", point: "Vysvetlenie regenerácie sa uzavrie jasným cyklom: výzva, mierny stres, zvládnutie a zotavenie.", status: "selected" },
+        { id: "v3c5", time: "4:48–5:23 + 5:47–6:10", duration: "cca 0:58", title: "Ako sa najlepšie učíme", hook: "Učíme sa lepšie v úplnom pokoji alebo pod tlakom?", point: "Mierne nabudenie a zachované bezpečie sa prepoja s významom podporných vzťahov a dobrej triednej klímy.", status: "idea" },
+        { id: "v3c6", time: "6:35–7:20 + 10:37–10:50", duration: "cca 0:58", title: "Aj učiteľ potrebuje regeneráciu", hook: "Aby sme mohli byť oporou pre deti, musíme sa postarať o vlastný nervový systém.", point: "Konkrétne telesné zdroje sa uzavrú hlavnou message série: tvorba bezpečia začína u nás samých.", status: "selected" },
+        { id: "v3c7", time: "7:20–8:03", duration: "cca 0:43", title: "Bezpečná zborovňa, bezpečnejšia trieda", hook: "Bezpečie v zborovni priamo ovplyvňuje bezpečie v triede.", point: "Vzťahová podpora, hranice, mentoring a reflexia pomáhajú učiteľovi zachovať odborný odstup.", status: "idea" },
+        { id: "v3c8", time: "10:37–10:50 + 6:35–6:52 + 7:20–7:38", duration: "cca 0:48", title: "Tvorba bezpečia začína u nás", hook: "Tvorba bezpečia začína u nás samých.", point: "Záverečný výrok otvorí Reel a následne ho podoprú konkrétne zdroje: starostlivosť o nervový systém a bezpečné vzťahy v zborovni.", status: "selected" }
       ]
     }
   ],
@@ -342,7 +342,14 @@ function loadState() {
 
 function mergeSavedState(saved) {
   const merged = { ...structuredClone(initialState), ...saved, contentVersion: CONTENT_VERSION };
-  const isCurrentContent = saved.contentVersion === CONTENT_VERSION;
+  const hasModernContent = Number(saved.contentVersion) >= 2;
+  const currentFirstReelTask = initialState.tasks.find(task => task.id === 3);
+
+  merged.tasks = (saved.tasks || initialState.tasks).map(task => (
+    task.id === 3
+      ? { ...task, title: currentFirstReelTask.title, detail: currentFirstReelTask.detail }
+      : task
+  ));
 
   merged.videos = initialState.videos.map(video => {
     const savedVideo = saved.videos?.find(item => item.id === video.id);
@@ -351,7 +358,7 @@ function mergeSavedState(saved) {
       clips: video.clips.map(clip => {
         const savedClip = savedVideo?.clips?.find(item => item.id === clip.id && item.title === clip.title);
         const wasUserChanged = savedClip && savedClip.status !== LEGACY_CLIP_STATUSES[clip.id];
-        return { ...clip, status: isCurrentContent || wasUserChanged ? savedClip?.status || clip.status : clip.status };
+        return { ...clip, status: hasModernContent || wasUserChanged ? savedClip?.status || clip.status : clip.status };
       })
     };
   });
@@ -361,7 +368,7 @@ function mergeSavedState(saved) {
     const wasUserChanged = savedPost && savedPost.status !== LEGACY_POST_STATUSES[post.id];
     return {
       ...post,
-      status: isCurrentContent || wasUserChanged ? savedPost?.status || post.status : post.status,
+      status: hasModernContent || wasUserChanged ? savedPost?.status || post.status : post.status,
       draft: savedPost?.draft || post.draft
     };
   });
@@ -548,6 +555,7 @@ function renderContent() {
             <div class="clip-top">
               <div>
                 <span class="clip-time">${clip.time}</span>
+                <span class="clip-duration">${clip.duration || ""}</span>
                 <h4>${clip.title}</h4>
               </div>
               <span class="phase-state ${clip.status === "selected" ? "current" : ""}">${statusLabel(clip.status)}</span>
