@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2db18">
+  <title>TRP Riadiace centrum</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="../assets/Inklucentrum_logo_kruh.svg" alt="">
+        <div>
+          <strong>TRP</strong>
+          <span>Riadiace centrum</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Hlavná navigácia">
+        <button class="nav-item active" data-view="overview"><span>01</span> Prehľad</button>
+        <button class="nav-item" data-view="tasks"><span>02</span> Úlohy</button>
+        <button class="nav-item" data-view="content"><span>03</span> Obsah a strihy</button>
+        <button class="nav-item" data-view="calendar"><span>04</span> Kalendár</button>
+        <button class="nav-item" data-view="results"><span>05</span> Výsledky</button>
+        <button class="nav-item" data-view="library"><span>06</span> Knižnica</button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <span>Hlavné CTA</span>
+        <strong>Pozrite si celé video na YouTube</strong>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Otvoriť menu">Menu</button>
+        <div>
+          <p id="todayLabel"></p>
+          <h1 id="viewTitle">Prehľad projektu</h1>
+        </div>
+        <div class="top-actions">
+          <button class="button secondary" id="exportButton">Exportovať zálohu</button>
+          <label class="button secondary file-button">
+            Obnoviť zo zálohy
+            <input type="file" id="importInput" accept=".json">
+          </label>
+        </div>
+      </header>
+
+      <section class="view active" id="overview">
+        <div class="hero">
+          <div>
+            <span class="eyebrow">Nosná téma kampane</span>
+            <h2>Bezpečie v triede je základ učenia.</h2>
+            <p>Učiteľ je dôležitý dospelý, ktorý bezpečie prináša, spoluvytvára a priebežne udržiava.</p>
+          </div>
+          <div class="hero-statement">
+            <span>TRP nie je systém.</span>
+            <strong>Je to optika, cez ktorú čítame správanie.</strong>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Začni tu</span>
+            <h3>Najbližšie kroky</h3>
+          </div>
+          <button class="text-button" data-go="tasks">Zobraziť všetky úlohy</button>
+        </div>
+        <div class="next-actions" id="nextActions"></div>
+
+        <div class="dashboard-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="section-kicker">Ciele</span>
+                <h3>Stav kampane</h3>
+              </div>
+              <button class="text-button" data-go="results">Upraviť čísla</button>
+            </div>
+            <div id="overviewMetrics" class="metric-stack"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="section-kicker">Orientácia</span>
+                <h3>Fázy projektu</h3>
+              </div>
+            </div>
+            <div class="phase-list" id="phaseList"></div>
+          </section>
+        </div>
+
+        <section class="panel focus-panel">
+          <div>
+            <span class="section-kicker">Aktuálny fokus</span>
+            <h3 id="focusTitle"></h3>
+            <p id="focusDescription"></p>
+          </div>
+          <a class="button dark" id="focusLink" target="_blank" rel="noreferrer">Otvoriť hlavné video</a>
+        </section>
+      </section>
+
+      <section class="view" id="tasks">
+        <div class="toolbar">
+          <div class="filter-group" id="taskFilters">
+            <button class="filter active" data-filter="all">Všetky</button>
+            <button class="filter" data-filter="next">Najbližšie</button>
+            <button class="filter" data-filter="progress">Rozpracované</button>
+            <button class="filter" data-filter="done">Hotové</button>
+          </div>
+          <button class="button dark" id="addTaskButton">+ Pridať úlohu</button>
+        </div>
+        <div id="taskList" class="task-board"></div>
+      </section>
+
+      <section class="view" id="content">
+        <div class="content-intro">
+          <div>
+            <span class="section-kicker">Video knižnica</span>
+            <h2>Čo publikovať a odkiaľ strihať</h2>
+            <p>Vyber video, pozri odporúčané pasáže a priebežne označuj, čo je vybrané, v strihu alebo publikované.</p>
+          </div>
+        </div>
+        <div class="video-tabs" id="videoTabs"></div>
+        <div id="videoDetail"></div>
+      </section>
+
+      <section class="view" id="calendar">
+        <div class="toolbar">
+          <div>
+            <span class="section-kicker">Publikačný plán</span>
+            <h2>Kalendár výstupov</h2>
+          </div>
+          <button class="button dark" id="addCalendarButton">+ Pridať výstup</button>
+        </div>
+        <div class="calendar-list" id="calendarList"></div>
+      </section>
+
+      <section class="view" id="results">
+        <div class="results-layout">
+          <section>
+            <span class="section-kicker">KPI</span>
+            <h2>Výsledky kampane</h2>
+            <p class="lead">Čísla aktualizuj raz týždenne. Prehratia a unikátny reach sleduj oddelene.</p>
+            <div id="metricEditor" class="metric-editor"></div>
+          </section>
+          <aside class="result-note">
+            <span>Pravidlo merania</span>
+            <h3>500 videní nie je automaticky 500 ľudí.</h3>
+            <p>YouTube prehratia, unikátny reach a prehratia sociálnych videí zapisuj do samostatných polí.</p>
+            <label>
+              Poznámka k vyhodnoteniu
+              <textarea id="resultsNote" rows="8" placeholder="Čo fungovalo, čo zmeniť budúci týždeň..."></textarea>
+            </label>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="library">
+        <div class="content-intro">
+          <div>
+            <span class="section-kicker">Všetko na jednom mieste</span>
+            <h2>Knižnica projektu</h2>
+            <p>Odkazy na videá a pôvodné pracovné podklady. Dashboard je hlavné pracovné miesto, tieto súbory slúžia ako detailný zdroj.</p>
+          </div>
+        </div>
+        <div id="libraryGrid" class="library-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="taskDialog">
+    <form method="dialog" id="taskForm">
+      <div class="dialog-head">
+        <h2>Nová úloha</h2>
+        <button value="cancel" class="icon-button" aria-label="Zavrieť">×</button>
+      </div>
+      <label>Názov úlohy<input name="title" required></label>
+      <label>Termín<input name="due" type="date"></label>
+      <label>Fáza
+        <select name="phase">
+          <option value="Jún">Jún</option>
+          <option value="Leto">Leto</option>
+          <option value="August">August</option>
+          <option value="Priebežne">Priebežne</option>
+        </select>
+      </label>
+      <label>Detail<textarea name="detail" rows="4"></textarea></label>
+      <button class="button dark" value="default">Pridať úlohu</button>
+    </form>
+  </dialog>
+
+  <dialog id="calendarDialog">
+    <form method="dialog" id="calendarForm">
+      <div class="dialog-head">
+        <h2>Nový výstup</h2>
+        <button value="cancel" class="icon-button" aria-label="Zavrieť">×</button>
+      </div>
+      <label>Dátum<input name="date" type="date" required></label>
+      <label>Názov<input name="title" required></label>
+      <label>Kanál<input name="channel" placeholder="Instagram / Facebook"></label>
+      <label>CTA<input name="cta" value="Pozrite si celé video na YouTube"></label>
+      <button class="button dark" value="default">Pridať výstup</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

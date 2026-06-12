@@ -1,0 +1,6 @@
+tmp/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+TRP_dashboard_zaloha_*.json

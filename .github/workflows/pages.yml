@@ -1,0 +1,51 @@
+name: Deploy TRP dashboard to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare public site
+        shell: bash
+        run: |
+          mkdir -p _site/dashboard _site/assets _site/output/pdf
+          cp index.html .nojekyll _site/
+          cp dashboard/index.html dashboard/styles.css dashboard/app.js _site/dashboard/
+          cp assets/Inklucentrum_logo_kruh.svg assets/InkaBSmall-Black.woff _site/assets/
+          cp TRP_video_obsahova_mapa.md TRP_realizacny_balicek.md _site/
+          cp TRP_obsahovy_kalendar_jun_2026.csv TRP_meraci_tracker.csv _site/
+          cp output/pdf/TRP_minikampan_klientska_prezentacia.pdf _site/output/pdf/
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
