@@ -65,6 +65,158 @@ const initialState = {
       ]
     }
   ],
+  posts: [
+    {
+      id: "p1", format: "carousel", status: "selected",
+      title: "Ticho nemusí znamenať bezpečie",
+      source: "Video 2 · Náročné správanie a regulácia",
+      time: "1:21–2:07",
+      url: "https://www.youtube.com/watch?v=wtE9UbLJ5tA&t=81s",
+      why: "Video ukazuje, že strata bezpečia nemusí vyzerať iba ako útok alebo vyrušovanie. Zamrznutie a stiahnutie sa sú menej nápadné, preto je táto téma vhodná na spomalenie a vysvetlenie cez viac slidov.",
+      fit: "Carousel vie postupne narušiť skratku „tichá trieda = bezpečná trieda“ a ukázať viditeľné aj tiché prejavy stresu bez zjednodušovania.",
+      slides: [
+        "Ticho v triede ešte nemusí znamenať bezpečie.",
+        "Dieťa v ohrození nemusí iba kričať alebo vyrušovať.",
+        "Môže zamrznúť, stiahnuť sa alebo prestať reagovať.",
+        "Navonok je pokojné. Jeho nervový systém však môže byť v pohotovosti.",
+        "Preto nesledujeme iba hlasitosť triedy, ale aj kontakt, zapojenie a schopnosť reagovať.",
+        "Otázka pre dospelého: Čo by tomuto dieťaťu pomohlo vrátiť sa do kontaktu?",
+        "Pozrite si celé video o náročnom správaní a regulácii."
+      ],
+      draft: "Tichá trieda môže pôsobiť pokojne. Nie každé ticho však znamená, že sa deti cítia bezpečne.\n\nStresová reakcia môže vyzerať aj ako zamrznutie, stiahnutie sa alebo nereagovanie. TRP nás učí nevnímať iba to, či dieťa ruší, ale aj to, či zostáva v kontakte a má kapacitu zapojiť sa.\n\nPozrite si druhú časť série o náročnom správaní a regulácii."
+    },
+    {
+      id: "p2", format: "carousel", status: "selected",
+      title: "Tri piliere bezpečia v triede",
+      source: "Video 1 · Tvorba bezpečia",
+      time: "3:00–7:12",
+      url: "https://www.youtube.com/watch?v=wALeNS80uEY&t=180s",
+      why: "Kontext, voľba a spojenie tvoria ucelený praktický rámec. Každý pilier potrebuje vlastné vysvetlenie a príklad, preto by sa v krátkom reelse pointa zbytočne stlačila.",
+      fit: "Carousel umožní venovať každému pilieru samostatný slide a zakončiť ho konkrétnou otázkou pre učiteľa.",
+      slides: [
+        "Bezpečie v triede stojí na troch pilieroch.",
+        "1. Kontext: Viem, čo sa bude diať, ako a prečo.",
+        "Bez kontextu si chýbajúce informácie dopĺňame. Často podľa minulých obáv.",
+        "2. Voľba: Mám primeranú možnosť ovplyvniť situáciu.",
+        "Príliš málo voľby vytvára pocit pasce. Príliš veľa môže zahltiť.",
+        "3. Spojenie: Zažívam prijatie a dôveryhodný vzťah.",
+        "Malé opakované kroky v kontexte, voľbe a spojení menia prežívanie triedy.",
+        "Ktorý z troch pilierov potrebuje vaša trieda posilniť?"
+      ],
+      draft: "Bezpečie nie je samostatná aktivita navyše. Vzniká v bežných chvíľach: keď deti vedia, čo ich čaká, majú primeranú možnosť voľby a zažívajú prijatie vo vzťahu.\n\nKontext, voľba a spojenie sú tri praktické piliere, cez ktoré môže učiteľ každý deň znižovať neistotu a podporovať učenie.\n\nViac príkladov nájdete v prvom videu série Tvorba bezpečia."
+    },
+    {
+      id: "p3", format: "static", status: "idea",
+      title: "Bezpečie nie je iba absencia nebezpečenstva",
+      source: "Video 1 · Tvorba bezpečia",
+      time: "2:39–2:58",
+      url: "https://www.youtube.com/watch?v=wALeNS80uEY&t=159s",
+      why: "Ide o krátku, nosnú definíciu, ktorá obstojí ako samostatný výrok a otvorí diskusiu v captione.",
+      fit: "Jedna výrazná veta na grafike a stručné vysvetlenie v texte budú účinnejšie než rozťahanie jednoduchej myšlienky do viacerých slidov.",
+      slides: [
+        "Bezpečie nie je iba absencia nebezpečenstva.",
+        "Je to aj pocit, že som prijímaný, som v poriadku a rozumiem tomu, čo sa okolo mňa deje."
+      ],
+      draft: "Keď sa v triede nič viditeľne zlé nedeje, ešte to neznamená, že každý prežíva bezpečie.\n\nPocit bezpečia zahŕňa aj prijatie, zrozumiteľnosť a možnosť orientovať sa v tom, čo sa deje. Práve v takom stave má nervový systém viac priestoru na kontakt, premýšľanie a učenie.\n\nPozrite si celé video Tvorba bezpečia."
+    },
+    {
+      id: "p4", format: "carousel", status: "idea",
+      title: "Od nálepky k pozorovaniu",
+      source: "Video 2 · Náročné správanie a regulácia",
+      time: "0:31–1:16",
+      url: "https://www.youtube.com/watch?v=wtE9UbLJ5tA&t=31s",
+      why: "Pasáž obsahuje viac krokov zmeny pohľadu: nálepka, pozorovanie, komunikácia a nová otázka. V carouseli sa dajú porovnať vedľa seba.",
+      fit: "Formát pred/po je ľahko uložiteľný a poskytne učiteľovi konkrétny jazyk, ku ktorému sa môže vrátiť.",
+      slides: [
+        "Nálepka situáciu pomenuje. Nie vždy jej pomôže porozumieť.",
+        "„Je drzý.“ → Čo konkrétne vidím a počujem?",
+        "„Ignoruje ma.“ → Dokáže teraz reagovať a zostať v kontakte?",
+        "„Manipuluje.“ → Akú potrebu sa týmto spôsobom snaží naplniť?",
+        "TRP mení hodnotenie za pozorovanie.",
+        "Namiesto „Čo s tebou nie je v poriadku?“ sa pýta „Čo sa ti stalo?“",
+        "Porozumenie neruší hranice. Pomáha zvoliť účinnejšiu reakciu."
+      ],
+      draft: "Nálepky nám pomáhajú rýchlo pomenovať situáciu. Málokedy nám však povedia, čo dieťa potrebuje alebo čo jeho správanie komunikuje.\n\nTrauma rešpektujúci prístup pozýva urobiť krok späť: oddeliť pozorovanie od hodnotenia a pýtať sa, aký zmysel môže mať správanie v danej situácii.\n\nNeznamená to zrušiť hranice. Znamená to reagovať s väčším porozumením a menšou pravdepodobnosťou ďalšej eskalácie."
+    },
+    {
+      id: "p5", format: "carousel", status: "selected",
+      title: "Tri úrovne regulácie",
+      source: "Video 2 · Náročné správanie a regulácia",
+      time: "3:14–4:26",
+      url: "https://www.youtube.com/watch?v=wtE9UbLJ5tA&t=194s",
+      why: "Telesná, vzťahová a rozumová regulácia sa ľahko zamieňajú alebo redukujú iba na rozhovor. Téma potrebuje prehľadnú štruktúru a príklady.",
+      fit: "Carousel funguje ako praktická pomôcka, ktorú si môže učiteľ uložiť a použiť pri plánovaní hodiny alebo riešení náročnej situácie.",
+      slides: [
+        "Regulácia neprebieha iba cez rozum.",
+        "1. Telesná: pohyb, dych, zmysly a úprava prostredia.",
+        "Pomáha telu znížiť napätie, ktoré sa počas dňa hromadí.",
+        "2. Vzťahová: bezpečný kontakt, prijatie a uznanie pocitov.",
+        "Vzťah s pokojným dospelým je silným nástrojom regulácie.",
+        "3. Rozumová: jasné informácie, predvídateľnosť, voľba a reflexia.",
+        "Rozumové vysvetľovanie funguje až vtedy, keď je dieťa dostatočne pokojné.",
+        "Telo. Vzťah. Rozum. V tomto poradí sa oplatí rozmýšľať aj v eskalácii."
+      ],
+      draft: "Keď je dieťa v silnom napätí, ďalšie vysvetľovanie nemusí byť prvým krokom.\n\nRegulácia prebieha na troch prepojených úrovniach: telesnej, vzťahovej a rozumovej. Všetky sú dôležité, ale rozumová časť je dostupná až vtedy, keď sa nervový systém cíti dostatočne bezpečne.\n\nUložte si prehľad troch úrovní alebo si pozrite celé video o náročnom správaní a regulácii."
+    },
+    {
+      id: "p6", format: "carousel", status: "idea",
+      title: "Teplomer alebo termostat?",
+      source: "Video 2 · Náročné správanie a regulácia",
+      time: "4:58–5:58",
+      url: "https://www.youtube.com/watch?v=wtE9UbLJ5tA&t=298s",
+      why: "Metafora obsahuje jasný kontrast a umožňuje učiteľovi rýchlo rozpoznať vlastnú reakciu bez obviňovania.",
+      fit: "Porovnávací carousel dokáže rozdiel medzi pasívnym preberaním napätia a aktívnou reguláciou ukázať názorne.",
+      slides: [
+        "Ste v triede teplomer alebo termostat?",
+        "Teplomer odráža teplotu v miestnosti.",
+        "Keď napätie v triede rastie, rastie spolu s ním aj napätie dospelého.",
+        "Termostat si zmenu všimne, ale aktívne udržiava primeranú teplotu.",
+        "Pokoj dospelého neznamená pasivitu. Umožňuje vedome zvoliť reakciu.",
+        "Úlohou dospelého nie je nemať emócie, ale nepridávať k situácii ďalšie nekontrolované napätie.",
+        "Čo vám pomáha zostať termostatom?"
+      ],
+      draft: "Napätie v triede prirodzene pôsobí aj na dospelého. Rozdiel je v tom, či ho iba preberieme, alebo s ním dokážeme vedome pracovať.\n\nMetafora termostatu nežiada od učiteľa dokonalý pokoj. Pripomína, že vlastná regulácia nám dáva viac možností, ako reagovať a ako priniesť pokoj späť do triedy.\n\nPozrite si druhé video série o regulácii."
+    },
+    {
+      id: "p7", format: "carousel", status: "idea",
+      title: "Kedy stres posilňuje a kedy zraňuje",
+      source: "Video 3 · Regenerácia a odolnosť",
+      time: "2:05–3:48",
+      url: "https://www.youtube.com/watch?v=B51FxrnwLZ4&t=125s",
+      why: "Video rozlišuje viac podmienok stresu. Bez ich porovnania môže zostať iba nepresná skratka, že stres je dobrý alebo zlý.",
+      fit: "Carousel umožní vytvoriť dve jasné skupiny podmienok a doplniť praktický školský príklad.",
+      slides: [
+        "Stres nie je automaticky zlý. Rozhodujú podmienky.",
+        "Posilňujúci stres je mierny a krátkodobý.",
+        "Je aspoň čiastočne predvídateľný a ovplyvniteľný.",
+        "Dieťa pri ňom nezažíva náročnú situáciu samo.",
+        "Zraňujúci stres je príliš silný, dlhodobý alebo bez možnosti zotavenia.",
+        "Riziko rastie, keď chýba podpora druhého človeka.",
+        "V škole môžeme doplniť informácie, čas na prípravu, prestávku alebo pokojného dospelého.",
+        "Cieľom nie je odstrániť všetky výzvy. Cieľom je urobiť ich zvládnuteľnými."
+      ],
+      draft: "Odolnosť nevzniká tým, že odstránime zo školy všetky nároky. Vzniká pri zvládnuteľných výzvach, na ktoré sa dá pripraviť a pri ktorých dieťa nezostáva samo.\n\nAk je stres príliš silný, trvá príliš dlho alebo po ňom nepríde zotavenie, prestáva posilňovať.\n\nPri náročnej situácii sa preto môžeme pýtať: Chýbajú informácie, možnosť ovplyvniť dianie, oddych alebo podpora pokojného človeka?"
+    },
+    {
+      id: "p8", format: "carousel", status: "idea",
+      title: "Regenerácia učiteľa na troch úrovniach",
+      source: "Video 3 · Regenerácia a odolnosť",
+      time: "6:35–8:15",
+      url: "https://www.youtube.com/watch?v=B51FxrnwLZ4&t=395s",
+      why: "Pasáž ponúka konkrétny inventár zdrojov a prepája starostlivosť o učiteľa s bezpečím v triede. Je vhodná na uloženie a návrat počas leta.",
+      fit: "Carousel môže fungovať ako nenásilný checklist bez toho, aby regeneráciu zmenil na ďalšiu povinnosť.",
+      slides: [
+        "Aj učiteľov nervový systém potrebuje regeneráciu.",
+        "Telesná úroveň: spánok, jedlo, pohyb, dych a skutočná prestávka.",
+        "Vzťahová úroveň: bezpečná zborovňa, zdieľanie a hranice medzi prácou a súkromím.",
+        "Rozumová úroveň: mentoring, vzdelávanie, reflexia a zmysel práce.",
+        "Regenerácia nie je odmena až po úplnom vyčerpaní.",
+        "Je to priebežná súčasť schopnosti zostať oporou pre deti.",
+        "Ktorý zdroj potrebuje počas leta najviac doplniť váš nervový systém?"
+      ],
+      draft: "Učiteľ nemôže byť nekonečným zdrojom pokoja. Aby mohol byť oporou pre deti, potrebuje priebežne dopĺňať aj vlastné zdroje.\n\nRegenerácia má telesnú, vzťahovú aj rozumovú stránku. Niekedy je to spánok a prestávka. Inokedy rozhovor s kolegyňou, jasnejšia hranica alebo odborný rámec, ktorý pomôže situácii porozumieť.\n\nLeto nemusí byť ďalším projektom na sebazdokonaľovanie. Môže byť priestorom na návrat k zdrojom."
+    }
+  ],
   calendar: [
     { id: 1, date: "2026-06-19", title: "Teaser série", channel: "Instagram / Facebook", cta: "Pozrite si Video 1", status: "planned" },
     { id: 2, date: "2026-06-22", title: "Učíme sa len v bezpečí", channel: "Reel", cta: "Pozrite si celé video", status: "planned" },
@@ -91,6 +243,8 @@ const library = [
 let state = loadState();
 let activeVideo = "v1";
 let taskFilter = "all";
+let activePost = "p1";
+let postFilter = "all";
 
 function loadState() {
   try {
@@ -127,10 +281,74 @@ function statusLabel(status) {
 function setView(id) {
   document.querySelectorAll(".view").forEach(view => view.classList.toggle("active", view.id === id));
   document.querySelectorAll(".nav-item").forEach(item => item.classList.toggle("active", item.dataset.view === id));
-  const titles = { overview: "Prehľad projektu", tasks: "Úlohy", content: "Obsah a strihy", calendar: "Kalendár", results: "Výsledky", library: "Knižnica" };
+  const titles = { overview: "Prehľad projektu", tasks: "Úlohy", content: "Reels", posts: "Príspevky", calendar: "Kalendár", results: "Výsledky", library: "Knižnica" };
   document.getElementById("viewTitle").textContent = titles[id];
   document.querySelector(".sidebar").classList.remove("open");
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderPosts() {
+  const visiblePosts = state.posts.filter(post => postFilter === "all" || post.format === postFilter);
+  if (!visiblePosts.some(post => post.id === activePost)) activePost = visiblePosts[0]?.id;
+
+  document.getElementById("postIndex").innerHTML = visiblePosts.map(post => `
+    <button class="post-index-item ${post.id === activePost ? "active" : ""}" data-post="${post.id}">
+      <span>${post.format === "carousel" ? "Carousel" : "Statický post"} · ${statusLabel(post.status)}</span>
+      <strong>${escapeHtml(post.title)}</strong>
+      <small>${escapeHtml(post.source)} · ${post.time}</small>
+    </button>
+  `).join("") || "<p>V tomto filtri nie sú žiadne návrhy.</p>";
+
+  const post = state.posts.find(item => item.id === activePost);
+  if (!post) {
+    document.getElementById("postDetail").innerHTML = "";
+    return;
+  }
+
+  document.getElementById("postDetail").innerHTML = `
+    <article class="post-article">
+      <div class="post-detail-head">
+        <div>
+          <span class="section-kicker">${post.format === "carousel" ? "Carousel" : "Statický post"}</span>
+          <h3>${escapeHtml(post.title)}</h3>
+        </div>
+        <select class="status-select" data-post-status="${post.id}">
+          ${["idea","selected","editing","published"].map(status => `<option value="${status}" ${post.status === status ? "selected" : ""}>${statusLabel(status)}</option>`).join("")}
+        </select>
+      </div>
+
+      <dl class="post-reasoning">
+        <div>
+          <dt>Zdroj</dt>
+          <dd><a href="${post.url}" target="_blank" rel="noreferrer">${escapeHtml(post.source)}, ${post.time}</a></dd>
+        </div>
+        <div>
+          <dt>Prečo táto téma</dt>
+          <dd>${escapeHtml(post.why)}</dd>
+        </div>
+        <div>
+          <dt>Prečo tento formát</dt>
+          <dd>${escapeHtml(post.fit)}</dd>
+        </div>
+      </dl>
+
+      <section class="slide-plan">
+        <div class="post-section-title">
+          <span class="section-kicker">${post.format === "carousel" ? "Osnova carouselu" : "Text na grafiku"}</span>
+          <strong>${post.slides.length} ${post.format === "carousel" ? "slidov" : "texty"}</strong>
+        </div>
+        <ol>
+          ${post.slides.map(slide => `<li>${escapeHtml(slide)}</li>`).join("")}
+        </ol>
+      </section>
+
+      <label class="draft-field">
+        Draft sprievodného textu
+        <textarea rows="12" data-post-draft="${post.id}">${escapeHtml(post.draft)}</textarea>
+        <small>Text sa ukladá automaticky v tomto prehliadači.</small>
+      </label>
+    </article>
+  `;
 }
 
 function renderOverview() {
@@ -288,6 +506,8 @@ function bindEvents() {
     if (go) setView(go.dataset.go);
     const video = event.target.closest("[data-video]");
     if (video) { activeVideo = video.dataset.video; renderContent(); }
+    const post = event.target.closest("[data-post]");
+    if (post) { activePost = post.dataset.post; renderPosts(); }
     const deleteTask = event.target.closest("[data-task-delete]");
     if (deleteTask) { state.tasks = state.tasks.filter(task => task.id !== Number(deleteTask.dataset.taskDelete)); saveState("Úloha bola odstránená"); renderTasks(); }
     const deleteCalendar = event.target.closest("[data-calendar-delete]");
@@ -313,6 +533,10 @@ function bindEvents() {
       video.clips.find(clip => clip.id === event.target.dataset.clip).status = event.target.value;
       saveState(); renderContent();
     }
+    if (event.target.matches("[data-post-status]")) {
+      state.posts.find(post => post.id === event.target.dataset.postStatus).status = event.target.value;
+      saveState(); renderPosts();
+    }
     if (event.target.matches("[data-metric]")) {
       state.metrics.find(metric => metric.id === event.target.dataset.metric).value = Math.max(0, Number(event.target.value) || 0);
       saveState("Metrika bola uložená"); renderResults();
@@ -325,6 +549,20 @@ function bindEvents() {
     taskFilter = button.dataset.filter;
     document.querySelectorAll("#taskFilters .filter").forEach(item => item.classList.toggle("active", item === button));
     renderTasks();
+  });
+
+  document.getElementById("postFilters").addEventListener("click", event => {
+    const button = event.target.closest("[data-post-filter]");
+    if (!button) return;
+    postFilter = button.dataset.postFilter;
+    document.querySelectorAll("#postFilters .filter").forEach(item => item.classList.toggle("active", item === button));
+    renderPosts();
+  });
+
+  document.getElementById("postDetail").addEventListener("input", event => {
+    if (!event.target.matches("[data-post-draft]")) return;
+    state.posts.find(post => post.id === event.target.dataset.postDraft).draft = event.target.value;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   });
 
   document.getElementById("resultsNote").addEventListener("input", event => {
@@ -389,6 +627,7 @@ function renderAll() {
   renderOverview();
   renderTasks();
   renderContent();
+  renderPosts();
   renderCalendar();
   renderResults();
   renderLibrary();

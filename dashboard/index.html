@@ -21,10 +21,11 @@
       <nav class="nav" aria-label="Hlavná navigácia">
         <button class="nav-item active" data-view="overview"><span>01</span> Prehľad</button>
         <button class="nav-item" data-view="tasks"><span>02</span> Úlohy</button>
-        <button class="nav-item" data-view="content"><span>03</span> Obsah a strihy</button>
-        <button class="nav-item" data-view="calendar"><span>04</span> Kalendár</button>
-        <button class="nav-item" data-view="results"><span>05</span> Výsledky</button>
-        <button class="nav-item" data-view="library"><span>06</span> Knižnica</button>
+        <button class="nav-item" data-view="content"><span>03</span> Reels</button>
+        <button class="nav-item" data-view="posts"><span>04</span> Príspevky</button>
+        <button class="nav-item" data-view="calendar"><span>05</span> Kalendár</button>
+        <button class="nav-item" data-view="results"><span>06</span> Výsledky</button>
+        <button class="nav-item" data-view="library"><span>07</span> Knižnica</button>
       </nav>
 
       <div class="sidebar-foot">
@@ -127,6 +128,25 @@
         </div>
         <div class="video-tabs" id="videoTabs"></div>
         <div id="videoDetail"></div>
+      </section>
+
+      <section class="view" id="posts">
+        <div class="content-intro">
+          <div>
+            <span class="section-kicker">Carousely a statické posty</span>
+            <h2>Témy, ktoré potrebujú viac priestoru</h2>
+            <p>Návrhy vychádzajú priamo z videí, ale ich pointa funguje lepšie rozdelená do slidov alebo vysvetlená v texte.</p>
+          </div>
+        </div>
+        <div class="post-filters" id="postFilters">
+          <button class="filter active" data-post-filter="all">Všetky</button>
+          <button class="filter" data-post-filter="carousel">Carousely</button>
+          <button class="filter" data-post-filter="static">Statické posty</button>
+        </div>
+        <div class="posts-layout">
+          <div class="post-index" id="postIndex"></div>
+          <div class="post-detail" id="postDetail"></div>
+        </div>
       </section>
 
       <section class="view" id="calendar">
